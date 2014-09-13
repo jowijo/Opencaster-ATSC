@@ -12,44 +12,48 @@
 # I also have a PHP conersion script if you want it. Simply email me.
 
 event_loop_item(
-	event_id = 200,
-	title_length = 0x11,
-	start_time = 1091921416,
-	length_in_seconds = 1800,
+	event_id = 200, #Incremental number that should always start at 200.
+	title_length = 0x11, #length of compressed_string in bytes? Can't remember.
+	start_time = 1091921416, #Start time (GPS format)
+	length_in_seconds = 1800, #Length in seconds. 
 	title_text = multiple_string_structure(
-	number_strings = 0x1,
+	number_strings = 0x1, #Number of string_loops. In this case, there is one.
 		string_loop = [
 			string_loop_item(
-				ISO639_language_code = "eng",
-				number_segments = 0x1,
+				ISO639_language_code = "eng", #This program is in English.
+				number_segments = 0x1, #Again, only one segement. 
 					segment_loop = [
 						segment_loop_item(
-							compression_type = 0x0,
+							compression_type = 0x0, #No compression. Unless you like hoffman coding.
 							mode = 0x0,
-							number_bytes = 0x48,
-							compressed_string = "\x4C\x6F\x63\x61\x6C\x20\x4E\x65\x77\x73\x20\x61\x74\x20\x53\x69\x78",),],),],),
+							number_bytes = 0x48, #Length in bytes of title string. This length is wrong.
+							compressed_string = "\x4C\x6F\x63\x61\x6C\x20\x4E\x65\x77\x73\x20\x61\x74\x20\x53\x69\x78", #UTF-16 code points of program title.
+							),],),],),
 	ETM_location = 0x1,
 	descriptor_loop = [
 		content_advisory_descriptor( #US RATING SYSTEM
 			rating_region_loop = [
 				rating_region_loop_item(
-					rating_region = 0x1,
-					rated_dimensions = 0x1,
-					rating_description = 0x3,
+					rating_region = 0x1, #United States
+					rated_dimensions = 0x1, #Leave this alone.
+					rating_description = 0x3, #Tried to get Region 1 ratings working. Not happening. 
 					rated_dimension_loop = [
 						rated_dimension_loop_item( 
-							rating_dimension_j = 0x0,
-							rating_value = 0x3,),],
-			rating_description_length = 0xD,
+							rating_dimension_j = 0x0, #Leave this alione
+							rating_value = 0x3, #Leave this alione
+							),
+							], 
+			rating_description_length = 0xD, #lenth in bytes of rating? Don't know.
 			rating_description_text = multiple_string_structure(
-				number_strings = 0x1,
+				number_strings = 0x1, #One string loop.
 					string_loop = [
 						string_loop_item(
-							ISO639_language_code = "eng",
+							ISO639_language_code = "eng", #This rating is in English.
 								number_segments = 0x1,
 									segment_loop = [
 										segment_loop_item(
-											compression_type = 0x0,
+											compression_type = 0x0, #Again, we're not using compression.
 											mode = 0x0,
-											number_bytes = 0x5,
-											compressed_string = "\x54\x56\x2D\x47",),],),],),),],),],),
+											number_bytes = 0x5, #Length in bytes of rating string.
+											compressed_string = "\x54\x56\x2D\x47", #TV-G
+											),],),],),),],),],),
