@@ -7,10 +7,10 @@ OpenCaster is a grand piece of software; but being developed in Europe, it lacks
 
 What's done so far:
 - TVCT (Virtual Channels)
-- Event Information Tables
-- Extended Information Tables
+- Event Information Tables (EIT)
+- Extended Information Tables (ETT)
+- Rating descriptors (EIT)
 
 What needs to be done:
-- Rating Region Tables
 - System Time Tables.
 - DCCSCT
